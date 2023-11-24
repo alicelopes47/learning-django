@@ -1,0 +1,7 @@
+<form method="post" action="{% url 'createproduct' %}">
+    {% csrf_token %}
+    <input type="text" placeholder="nome do produto" name="nome">
+    <input type="text" name="preco" placeholder="preço por unidade">
+    <input type="text" name="quantidade" placeholder="quantidade em estoque">
+    <button type="submit">Cadastrar Produto</button>
+</form>

@@ -1,0 +1,27 @@
+.background-inner {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.548);
+    padding: 20px;
+    border-radius: 16px;
+    top: 20%;
+    left: 10%;
+}
+
+.background-inner h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 100px;
+}
+
+.background-inner p {
+    font-size: 40px;
+}
+
+.button-first {
+    font-size: 20px;
+    background-color: rgb(165, 81, 42);
+    border: none;
+    border-radius: 16px;
+    color: white;
+    padding: 0 10px;
+    margin-right: 10px;
+}

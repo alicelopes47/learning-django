@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de compras</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buyingpage.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Padaria pão quentim</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-input="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Página inicial</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="createuser">Criar Usuário</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="background-container">
+            <div class="background-image">
+                <div class="background-inner">
+                    <h1>PADARIA PÃO QUENTIM</h1>
+                    <p>Por enquanto seu carrinho está assim, adicionar mais?</p>
+                    <p>PRODUTOS:</p>
+                    </form>
+                    <table border="1" class="table">
+                      <tr>
+                          <th>Nome</th>
+                          <th>Preço</th>
+                          <th>Quantidade</th>
+                          <th>Preço Total</th>
+                      </tr>
+                      {% for produto in produtos %}
+                      <tr>
+                          <td>{{ produto.nome }}</td>
+                          <td>{{ produto.preco }}</td>
+                          <td>{{ produto.quantidade }}</td>
+                      </tr>
+                      {% endfor %}
+                  </table>
+                  <a href="createproduct"><button>Cadastrar produto novo </button></a>
+                </div>
+
+            </div>
+      </div>
+</body>
+</html>
