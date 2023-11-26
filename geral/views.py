@@ -22,12 +22,12 @@ def createUser(request):
         isUsernameTaken = User.objects.filter(username = username).first()
 
         if isUsernameTaken:
-            return HttpResponse('Já existe um usuário com esse username')
+            return render(request, 'error-create.html')
         
         isValid = User.objects.create_user(username=username, email=email, password=senha)
         isValid.save()
 
-        return HttpResponse('Usuário cadastrado com sucesso!')
+        return render(request, 'success-create.html')
 
 def loginPage (request):
     if request.method == 'GET':
@@ -42,7 +42,7 @@ def loginPage (request):
             login(request, user)
             return redirect(to='buyingpage')
         else:
-            return HttpResponse('confira usuario e senha')
+            return render(request, 'error-login.html')
         
 @login_required(login_url="/login")
 def buyingPage (request):
@@ -61,3 +61,8 @@ def newProduct (request):
         else:
             form = ProductForm()
         return render(request, 'createProduct.html', {'form': form})
+    
+@login_required
+def sair(request):
+    logout(request)
+    return redirect('home')

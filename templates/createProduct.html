@@ -1,7 +1,47 @@
-<form method="post" action="{% url 'createproduct' %}">
-    {% csrf_token %}
-    <input type="text" placeholder="nome do produto" name="nome">
-    <input type="text" name="preco" placeholder="preço por unidade">
-    <input type="text" name="quantidade" placeholder="quantidade em estoque">
-    <button type="submit">Cadastrar Produto</button>
-</form>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de produtos</title>
+  </head>
+  <body
+  style="
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    background-color: #9f2828;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  "
+  >
+
+  <a href="logout"><button style="font-size: 20px; padding: 10px; border-radius: 15px; margin-top: 10px; background-color: #b1aaad; border: none;">SAIR</button></a>
+  <div style="background-color: white; padding: 50px; margin-top: 20px; border-radius: 50px; width: 50%;">
+    <div style="display: flex; flex-direction: column; align-items: center">
+      <img src="{% static 'img/logo-bakery.png' %}" alt="" width="133px" />
+      <p style="font-weight: 900; text-align: center;">
+        PADARIA <br />
+        PÃO QUENTIM
+      </p>
+    </div>
+    <h2 style="text-align: center; color: #9f2828;">CADASTRO DE PRODUTO</h1> 
+      <form style="display: flex; flex-direction: column; align-items: center;" action="{% url 'createproduct' %}" method="post">
+        {% csrf_token %}
+        <div style="display: flex; flex-direction: column; width: 100%; justify-content: space-around; width: 100%; gap: 20px;">
+          <input style="font-size: 15px; padding: 10px; border: solid black; border-width: 0.1px; border-radius: 20px;" type="text" placeholder="Nome do produto" name="nome" />
+          <div style="display: flex; justify-content: space-between;">
+            <input style="font-size: 15px; width: 45%; padding: 10px; border: solid black; border-width: 0.1px; border-radius: 20px;" type="text" placeholder="Preço unitário" name="preco" />
+            <input style="font-size: 15px; width: 45%; padding: 10px; border: solid black; border-width: 0.1px; border-radius: 20px;" type="text" placeholder="Quantidade em estoque" name="quantidade" />
+          </div>
+        </div>
+        <button style="font-size: 20px; padding: 10px; border-radius: 15px; margin-top: 30px; background-color: #b1aaad; border: none;" type="submit">Cadastrar produto</button>
+      </form>
+    </div>
+    <a href="buyingpage"><button style="font-size: 20px; padding: 10px; border-radius: 15px; margin-top: 10px; background-color: #b1aaad; border: none;">VOLTAR</button></a>
+  </div>
+  </body>
+</html>
